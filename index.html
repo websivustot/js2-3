@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson3 Shopping list</title>
+    <script src="js/jquery-3.2.0.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Список покупок</h1>
+        <ul></ul>
+
+        <script>
+            function ShoppingList() {
+                
+                this.getForm = function () {
+
+                    $('.container').append(
+                        $('<form/>').addClass('form-inline').append(
+                            $('<input/>', {
+                                placeholder: 'Название товара'
+                            }).addClass("form-control name")
+                        ))
+
+                    $('form').append(
+                        $('<input/>', {
+                            placeholder: 'Кол-во'
+                        }).addClass("form-control amount")
+
+                    )
+
+                    $('form').append(
+
+                        $('<button/>', {
+                            text: 'Добавить',
+                            class: 'btn add'
+                        }).click(function () {
+                            x.addListString();
+                        })
+                    )
+                    $('form').submit(function () {
+                        return false;
+                    });
+                }
+
+                this.addListString = function () {
+                    $('ul').append($('<li/>', {
+                        text: $('.name').val() + ' - ' + $('.amount').val() + ' '
+                    }).append($('<input>', {
+                        type: 'checkbox',
+                        class: 'checkbox'
+                    }).css('display', 'inline').on('click', function () {                                     
+                        if ($(this).prop("checked")) {
+                            $(this).closest('li').css({
+                                'text-decoration': 'line-through'
+                            });
+                        } else {
+                            $(this).closest('li').css({
+                                'text-decoration': 'none'
+                            });
+                        }
+                    })));
+                }
+
+                this.getForm();
+
+            }
+
+            x = new ShoppingList();
+        </script>
+    </div>
+
+</body>
+
+</html>
