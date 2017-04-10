@@ -35,8 +35,8 @@
                             addListString();
                         })
                     )
-                    $('form').submit(function () {
-                        return false;
+                    $('form').submit(function (event) {
+                        event.preventDefault();
                     });
                 }
 
