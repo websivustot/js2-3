@@ -15,30 +15,24 @@
 
         <script>
             function ShoppingList() {
-                
-                this.getForm = function () {
-
+                getForm = function () {
                     $('.container').append(
                         $('<form/>').addClass('form-inline').append(
                             $('<input/>', {
                                 placeholder: 'Название товара'
                             }).addClass("form-control name")
                         ))
-
                     $('form').append(
                         $('<input/>', {
                             placeholder: 'Кол-во'
                         }).addClass("form-control amount")
-
                     )
-
                     $('form').append(
-
                         $('<button/>', {
                             text: 'Добавить',
                             class: 'btn add'
                         }).click(function () {
-                            x.addListString();
+                            addListString();
                         })
                     )
                     $('form').submit(function () {
@@ -46,13 +40,13 @@
                     });
                 }
 
-                this.addListString = function () {
+                addListString = function () {
                     $('ul').append($('<li/>', {
                         text: $('.name').val() + ' - ' + $('.amount').val() + ' '
                     }).append($('<input>', {
                         type: 'checkbox',
                         class: 'checkbox'
-                    }).css('display', 'inline').on('click', function () {                                     
+                    }).css('display', 'inline').on('click', function () {
                         if ($(this).prop("checked")) {
                             $(this).closest('li').css({
                                 'text-decoration': 'line-through'
@@ -65,11 +59,9 @@
                     })));
                 }
 
-                this.getForm();
-
+                getForm();
             }
-
-            x = new ShoppingList();
+            list1 = new ShoppingList();
         </script>
     </div>
 
