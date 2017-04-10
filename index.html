@@ -31,13 +31,11 @@
                         $('<button/>', {
                             text: 'Добавить',
                             class: 'btn add'
-                        }).click(function () {
+                        }).click(function (event) {
+                            event.preventDefault();
                             addListString();
                         })
-                    )
-                    $('form').submit(function (event) {
-                        event.preventDefault();
-                    });
+                    )                    
                 }
 
                 addListString = function () {
